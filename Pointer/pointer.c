@@ -31,5 +31,5 @@ void blah()
 
     j = *pv->f4;
     j = pv->_cc._bb._aa.f1;
-    j = &pv->_cc._bb._aa.f1;
+    // j = &pv->_cc._bb._aa.f1;
 }
