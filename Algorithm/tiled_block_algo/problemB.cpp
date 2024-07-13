@@ -46,7 +46,7 @@ void update_range(int l, int r, int val)
         }
         for (int i = start_block + 1; i < end_block; ++i)
         {
-            lazy[i] += val;
+            lazy[i] += val; // 标记懒惰数组
         }
         for (int i = end_block * block_size; i <= r; ++i)
         {
