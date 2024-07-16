@@ -30,3 +30,11 @@ struct Point {
 //         return 0;
 // }
 ```
+
+计算叉积
+```c++
+int cross(Point a, Point b, Point c)
+{
+    return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+}
+```
