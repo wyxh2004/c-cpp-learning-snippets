@@ -15,6 +15,7 @@ jobs:
           host: 115.29.214.120
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd /var/test-ci/
             git pull origin main
