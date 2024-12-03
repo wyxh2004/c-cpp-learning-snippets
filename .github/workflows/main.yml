@@ -1,24 +1,3 @@
-# name: Sync to Server
-
-# on:
-#   push:
-#     branches: [main]
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - name: Use SSH to deploy
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: 115.29.214.120
-#           username: root
-#           key: ${{ secrets.SSH_PRIVATE_KEY }}
-#           script: |
-#             cd /var/test-ci/
-#             git pull origin main
-
 name: Sync to Server
 
 on:
@@ -26,22 +5,15 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@v3
+      - name: Use SSH to deploy
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: 115.29.214.120
           username: root
-          # key: ${{ secrets.SSH_PRIVATE_KEY }} # 如果需要的话，可以保留这一行以确保首次设置时能够连接
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/test-ci/
-
-            # git config core.sparseCheckout true
-
-            # 拉取最新的代码
-            git pull origin main
+            whoami
