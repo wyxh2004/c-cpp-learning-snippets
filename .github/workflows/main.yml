@@ -14,6 +14,6 @@ jobs:
         with:
           host: 115.29.214.120
           username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.SSH_PASSWORD }}
           script: |
             whoami
