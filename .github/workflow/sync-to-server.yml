@@ -1,0 +1,20 @@
+name: Sync to Server
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use SSH to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 115.29.214.120
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/test-ci/
+            git pull origin main
