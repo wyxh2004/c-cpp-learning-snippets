@@ -16,4 +16,4 @@ jobs:
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            whoami
+            git pull origin main
