@@ -16,4 +16,5 @@ jobs:
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
+            cd /var/test-ci/
             git pull origin main
